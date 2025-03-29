@@ -4,95 +4,206 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>NEskuchno - Не скучно</title>
+  <!-- Подключение Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
   <style>
-    body {
-      font-family: Arial, sans-serif;
+    /* Общие стили */
+    * {
+      box-sizing: border-box;
+    }
+    body, html {
       margin: 0;
       padding: 0;
-      background-color: #f4f4f4;
+      font-family: 'Montserrat', sans-serif;
+      scroll-behavior: smooth;
       color: #333;
     }
-    header {
-      background-color: #333;
-      color: #fff;
-      padding: 20px;
-      text-align: center;
-    }
-    nav {
-      display: flex;
-      justify-content: center;
-      background-color: #444;
-    }
-    nav a {
-      color: #fff;
+    a {
       text-decoration: none;
-      padding: 15px 20px;
-      display: block;
     }
-    nav a:hover {
-      background-color: #555;
+    
+    /* Header и навигация */
+    header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+      background: rgba(255, 255, 255, 0.9);
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     }
-    section {
-      padding: 40px 20px;
-      max-width: 1000px;
-      margin: 20px auto;
-      background-color: #fff;
-      border-radius: 8px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    .nav-container {
+      max-width: 1200px;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 20px;
     }
+    .nav-container .logo {
+      font-size: 1.5em;
+      font-weight: 700;
+      color: #000;
+    }
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+    }
+    nav ul li {
+      margin-left: 20px;
+    }
+    nav ul li a {
+      color: #000;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+    nav ul li a:hover {
+      color: #888;
+    }
+    
+    /* Секция Hero */
     .hero {
+      height: 100vh;
+      background: url('https://via.placeholder.com/1920x1080') no-repeat center center/cover;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+    .hero::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      background: rgba(0,0,0,0.4);
+    }
+    .hero-content {
+      position: relative;
       text-align: center;
-      background: url('https://via.placeholder.com/1200x400') no-repeat center center;
-      background-size: cover;
       color: #fff;
-      padding: 100px 20px;
-      border-radius: 8px;
+      z-index: 1;
+      max-width: 800px;
+      padding: 20px;
+    }
+    .hero-content h1 {
+      font-size: 3em;
+      margin-bottom: 20px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+    .hero-content p {
+      font-size: 1.2em;
       margin-bottom: 20px;
     }
-    .hero h1 {
-      font-size: 48px;
-      margin: 0;
+    
+    /* Секции страницы */
+    section {
+      padding: 100px 20px;
+      max-width: 1200px;
+      margin: auto;
     }
+    #about .about {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 40px;
+    }
+    .about-text {
+      flex: 1 1 500px;
+    }
+    .about-img {
+      flex: 1 1 400px;
+    }
+    .about-img img {
+      width: 100%;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    
+    /* Секция контактов */
+    .contacts {
+      background: #f9f9f9;
+      text-align: center;
+    }
+    .contacts h2 {
+      margin-bottom: 20px;
+    }
+    .contacts p {
+      font-size: 1.1em;
+      margin: 5px 0;
+    }
+    
+    /* Footer */
     footer {
+      background: #333;
+      color: #fff;
       text-align: center;
       padding: 20px;
-      background-color: #333;
-      color: #fff;
+    }
+    
+    /* Адаптивность */
+    @media (max-width: 768px) {
+      #about .about {
+        flex-direction: column;
+      }
     }
   </style>
 </head>
 <body>
+
+  <!-- Header и навигация -->
   <header>
-    <h1>NEskuchno</h1>
-    <p>Не скучно – креативная одежда для молодежи</p>
-  </header>
-  <nav>
-    <a href="#home">Главная</a>
-    <a href="#about">О бренде</a>
-    <a href="#contacts">Контакты</a>
-  </nav>
-  <section id="home">
-    <div class="hero">
-      <h1>Добро пожаловать в NEskuchno</h1>
-      <p>Молодежный бренд, где каждая вещь – произведение искусства.</p>
+    <div class="nav-container">
+      <a href="#home" class="logo">NEskuchno</a>
+      <nav>
+        <ul>
+          <li><a href="#home">Главная</a></li>
+          <li><a href="#about">О бренде</a></li>
+          <li><a href="#contacts">Контакты</a></li>
+        </ul>
+      </nav>
     </div>
-    <p>NEskuchno – это бренд, который объединяет креативность и доступность. Мы создаем уникальные вещи, подчеркивающие индивидуальность и стиль наших клиентов. Производство малыми партиями под заказ гарантирует, что каждая вещь уникальна и отвечает последним модным тенденциям.</p>
+  </header>
+
+  <!-- Секция Hero -->
+  <section id="home" class="hero">
+    <div class="hero-content">
+      <h1>Не скучно</h1>
+      <p>Креативная одежда для молодежи</p>
+    </div>
   </section>
+
+  <!-- Секция О бренде -->
   <section id="about">
-    <h2>О бренде</h2>
-    <p>История NEskuchno началась два года назад с мечты сделать моду яркой и доступной для каждого. Основатель бренда увидел, как важно выделяться из толпы, не тратя большие суммы, и решил создать коллекцию одежды для молодежи – креативную, уникальную и бюджетную. Наша куртка-бомбер и две модели юбок стали первым шагом в этом направлении, а каждый новый дизайн вдохновлен стремлением сделать жизнь чуть ярче.</p>
+    <div class="about">
+      <div class="about-text">
+        <h2>О бренде</h2>
+        <p>История NEskuchno началась два года назад с мечты сделать моду яркой и доступной для каждого. Наш бренд рожден для тех, кто не боится выделяться из толпы. Первая коллекция – это куртка-бомбер и две модели юбок, каждая из которых уникальна и создана с любовью.</p>
+        <p>Мы создаем одежду для молодежи, которая ценит креативность и индивидуальность. Каждый наш дизайн – это вызов обыденности, стремление сделать моду не скучной.</p>
+      </div>
+      <div class="about-img">
+        <img src="https://via.placeholder.com/600x400" alt="О бренде NEskuchno">
+      </div>
+    </div>
   </section>
-  <section id="contacts">
+
+  <!-- Секция Контакты -->
+  <section id="contacts" class="contacts">
     <h2>Контакты</h2>
-    <p>Свяжитесь с нами:</p>
-    <ul>
-      <li>Email: info@neskuchno.ru</li>
-      <li>Телефон: +7 (000) 123-45-67</li>
-      <li>Адрес: г. Москва, ул. Примерная, д. 1</li>
-    </ul>
+    <p>Email: info@neskuchno.ru</p>
+    <p>Телефон: +7 (000) 123-45-67</p>
+    <p>Адрес: г. Москва, ул. Примерная, д. 1</p>
   </section>
+
+  <!-- Footer -->
   <footer>
     <p>&copy; 2025 NEskuchno. Все права защищены.</p>
   </footer>
+  
 </body>
 </html>
